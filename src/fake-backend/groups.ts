@@ -17,6 +17,10 @@ export const mockGroups = [
       {
         "first_name": "Вера",
         "last_name": "Петрова"
+      },
+      {
+        "first_name": "Вика",
+        "last_name": "Петрова"
       }
     ]
   },

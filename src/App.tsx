@@ -2,6 +2,9 @@ import { FC, useEffect, useState } from "react"
 
 import { getGroups } from "./fake-backend"
 import { Group } from "./types/types"
+import GroupList from "./components/GroupList/GroupList"
+
+import './styles/style.css'
 
 const App: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -29,13 +32,13 @@ const App: FC = () => {
     }
     fetchGroups()
   }, [])
-  
+
   return (
-    <>
+    <div className="app-container">
       {isLoading && <div>Загрузка...</div>}
       {error && !isLoading && <div>{error}</div>}
-      {!error && !isLoading && <div>{JSON.stringify(groups)}</div>}
-    </>
+      {!error && !isLoading && <GroupList groups={groups} />}
+    </div>
   )
 }
 
