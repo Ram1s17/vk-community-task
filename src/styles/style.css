@@ -6,6 +6,12 @@
     color: red;
 }
 
+.filter-block {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .app-container {
     padding: 16px;
 }

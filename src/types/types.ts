@@ -16,3 +16,9 @@ export interface User {
     first_name: string;
     last_name: string;
 }
+
+export interface Filters {
+    closed: boolean | string;
+    avatarColor: string;
+    hasFriends: boolean | string;
+}
