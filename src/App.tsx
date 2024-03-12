@@ -3,6 +3,8 @@ import { FC, useEffect, useState } from "react"
 import { getGroups } from "./fake-backend"
 import { Group } from "./types/types"
 import GroupList from "./components/GroupList/GroupList"
+import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner"
+import NoData from "./components/NoData/NoData"
 
 import './styles/style.css'
 
@@ -35,9 +37,18 @@ const App: FC = () => {
 
   return (
     <div className="app-container">
-      {isLoading && <div>Загрузка...</div>}
-      {error && !isLoading && <div>{error}</div>}
-      {!error && !isLoading && <GroupList groups={groups} />}
+      {isLoading &&
+        <LoadingSpinner />
+      }
+      {error && !isLoading &&
+        <div className="text-align-center error-text">{error}</div>
+      }
+      {!error && !isLoading && groups.length > 0 &&
+        <GroupList groups={groups} />
+      }
+      {!error && !isLoading && groups.length === 0 &&
+        <NoData />
+      }
     </div>
   )
 }
